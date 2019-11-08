@@ -289,7 +289,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text('PREV'),
                       onPressed: () {
                         setState(() {
-                          _targetDate = DateTime(_targetDate.year, _targetDate.month - 1, _targetDate.day);
+                          _targetDate = DateTime(_targetDate.year, _targetDate.month - 1);
                           _currentMonth = DateFormat.yMMM().format(_targetDate);
                         });
                       },
@@ -298,7 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text('NEXT'),
                       onPressed: () {
                         setState(() {
-                          _targetDate = DateTime(_targetDate.year, _targetDate.month + 1, _targetDate.day);
+                          _targetDate = DateTime(_targetDate.year, _targetDate.month + 1);
                           _currentMonth = DateFormat.yMMM().format(_targetDate);
                         });
                       },
