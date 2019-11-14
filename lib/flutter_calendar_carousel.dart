@@ -253,8 +253,24 @@ class _CalendarState<T extends EventInterface> extends State<CalendarCarousel<T>
     if (widget.selectedDateTime != null)
       _selectedDate = widget.selectedDateTime;
 
+    if (widget.targetDateTime != null) {
+      if (widget.targetDateTime
+          .difference(minDate)
+          .inDays < 0) {
+        _targetDate = minDate;
+      } else if (widget.targetDateTime
+          .difference(maxDate)
+          .inDays > 0) {
+        _targetDate = maxDate;
+      } else {
+        _targetDate = widget.targetDateTime;
+      }
+    } else {
+      _targetDate = _selectedDate;
+    }
+
     if (widget.weekFormat) {
-      _targetDate = _firstDayOfWeek(_selectedDate);
+      _targetDate = _firstDayOfWeek(_targetDate);
       for (int _cnt = 0;
       0 > minDate.add(Duration(days: 7 * _cnt)).difference(_targetDate).inDays;
       _cnt++) {
