@@ -71,6 +71,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
   final Color selectedDayButtonColor;
   final Color selectedDayBorderColor;
   final bool daysHaveCircularBorder;
+  final double daysHaveRectangleRadius;
   final Function(DateTime, List<T>) onDayPressed;
   final TextStyle weekdayTextStyle;
   final Color iconColor;
@@ -154,6 +155,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
     this.selectedDayBorderColor = Colors.green,
     this.selectedDayButtonColor = Colors.green,
     this.daysHaveCircularBorder,
+    this.daysHaveRectangleRadius,
     this.onDayPressed,
     this.weekdayTextStyle,
     this.iconColor = Colors.blueAccent,
@@ -489,6 +491,7 @@ class _CalendarState<T extends EventInterface> extends State<CalendarCarousel<T>
                     ),
                   )
                 : RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(widget.daysHaveRectangleRadius ?? 0) ,
                     side: BorderSide(
                       color: isSelectedDay
                           ? widget.selectedDayBorderColor
