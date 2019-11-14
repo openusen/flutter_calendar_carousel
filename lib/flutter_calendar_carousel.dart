@@ -461,6 +461,7 @@ class _CalendarState<T extends EventInterface> extends State<CalendarCarousel<T>
     return Container(
       decoration: widget.customBoxDecoration != null ? widget.customBoxDecoration : BoxDecoration(),
       margin: widget.dayMargin,
+      padding: widget.dayPadding,
       child: GestureDetector(
         onLongPress: () => _onDayLongPressed(now),
         child: FlatButton(
@@ -471,7 +472,7 @@ class _CalendarState<T extends EventInterface> extends State<CalendarCarousel<T>
                       ? widget.todayButtonColor
                       : widget.dayButtonColor,
           onPressed: () => _onDayPressed(now),
-          padding: widget.dayPadding,
+          padding: widget.dayMargin,
           shape: widget.markedDateCustomShapeBorder != null
             && widget.markedDatesMap != null
             && widget.markedDatesMap.getEvents(now).length > 0
