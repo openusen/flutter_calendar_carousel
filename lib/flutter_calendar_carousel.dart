@@ -472,7 +472,7 @@ class _CalendarState<T extends EventInterface> extends State<CalendarCarousel<T>
                       ? widget.todayButtonColor
                       : widget.dayButtonColor,
           onPressed: () => _onDayPressed(now),
-          padding: widget.dayMargin,
+          padding: EdgeInsets.all(widget.dayMargin),
           shape: widget.markedDateCustomShapeBorder != null
             && widget.markedDatesMap != null
             && widget.markedDatesMap.getEvents(now).length > 0
