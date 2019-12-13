@@ -58,8 +58,8 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
   final Color prevMonthDayBorderColor;
   final Color thisMonthDayBorderColor;
   final Color nextMonthDayBorderColor;
-  final EdgeInsets dayMargin;
-  final EdgeInsets dayPadding;
+  final double dayMargin;
+  final double dayPadding;
   final double height;
   final double width;
   final TextStyle todayTextStyle;
@@ -143,8 +143,8 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
     this.prevMonthDayBorderColor = Colors.transparent,
     this.thisMonthDayBorderColor = Colors.transparent,
     this.nextMonthDayBorderColor = Colors.transparent,
-    this.dayMargin = EdgeInsets.all(2.0),
-    this.dayPadding = EdgeInsets.all(2.0),
+    this.dayMargin = 2.0,
+    this.dayPadding = 2.0,
     this.height = double.infinity,
     this.width = double.infinity,
     this.todayTextStyle,
@@ -460,8 +460,8 @@ class _CalendarState<T extends EventInterface> extends State<CalendarCarousel<T>
   ) {
     return Container(
       decoration: widget.customBoxDecoration != null ? widget.customBoxDecoration : BoxDecoration(),
-      margin: widget.dayMargin,
-      padding: widget.dayPadding,
+      margin: EdgeInsets.all(widget.dayMargin),
+      padding: EdgeInsets.all(widget.dayPadding),
       child: GestureDetector(
         onLongPress: () => _onDayLongPressed(now),
         child: FlatButton(
